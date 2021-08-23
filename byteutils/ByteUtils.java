@@ -690,7 +690,6 @@ public class ByteUtils {
      */
     public static void writeAddress(byte[] data, InetSocketAddress address, Offset offset) {
         writeString(data, address.getHostString(), offset);
-        System.out.println("fay " + offset.get());
         writeShortLE(data, (short) address.getPort(), offset);
     }
 
