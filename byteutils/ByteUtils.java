@@ -4,8 +4,7 @@ import java.net.InetSocketAddress;
 import java.util.UUID;
 
 public class ByteUtils {
-    
-    
+
     /** 
      * @param data the byte array
      * @param value the value to encode
@@ -153,14 +152,14 @@ public class ByteUtils {
     public static long readLongLE(byte[] data, int offset) {
         long res = 0;
 
-        res |= (data[offset++] & 0xFF) << 000;
-        res |= (data[offset++] & 0xFF) << 010;
-        res |= (data[offset++] & 0xFF) << 020;
-        res |= (data[offset++] & 0xFF) << 030;
-        res |= (data[offset++] & 0xFF) << 040;
-        res |= (data[offset++] & 0xFF) << 050;
-        res |= (data[offset++] & 0xFF) << 060;
-        res |= (data[offset  ] & 0xFF) << 070;
+        res |= (data[offset++] & 0xFFL) << 000;
+        res |= (data[offset++] & 0xFFL) << 010;
+        res |= (data[offset++] & 0xFFL) << 020;
+        res |= (data[offset++] & 0xFFL) << 030;
+        res |= (data[offset++] & 0xFFL) << 040;
+        res |= (data[offset++] & 0xFFL) << 050;
+        res |= (data[offset++] & 0xFFL) << 060;
+        res |= (data[offset  ] & 0xFFL) << 070;
 
         return res;
     }
@@ -270,14 +269,14 @@ public class ByteUtils {
     public static long readLongBE(byte[] data, int offset) {
         long res = 0;
 
-        res |= (data[offset++] & 0xFF) << 070;
-        res |= (data[offset++] & 0xFF) << 060;
-        res |= (data[offset++] & 0xFF) << 050;
-        res |= (data[offset++] & 0xFF) << 040;
-        res |= (data[offset++] & 0xFF) << 030;
-        res |= (data[offset++] & 0xFF) << 020;
-        res |= (data[offset++] & 0xFF) << 010;
-        res |= (data[offset  ] & 0xFF) << 000;
+        res |= (data[offset++] & 0xFFL) << 070;
+        res |= (data[offset++] & 0xFFL) << 060;
+        res |= (data[offset++] & 0xFFL) << 050;
+        res |= (data[offset++] & 0xFFL) << 040;
+        res |= (data[offset++] & 0xFFL) << 030;
+        res |= (data[offset++] & 0xFFL) << 020;
+        res |= (data[offset++] & 0xFFL) << 010;
+        res |= (data[offset  ] & 0xFFL) << 000;
 
         return res;
     }
@@ -417,14 +416,14 @@ public class ByteUtils {
     public static long readLongLE(byte[] data, Offset offset) {
         long res = 0;
 
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 000;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 010;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 020;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 030;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 040;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 050;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 060;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 070;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 000;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 010;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 020;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 030;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 040;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 050;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 060;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 070;
 
         return res;
     }
@@ -534,14 +533,14 @@ public class ByteUtils {
     public static long readLongBE(byte[] data, Offset offset) {
         long res = 0;
 
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 070;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 060;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 050;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 040;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 030;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 020;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 010;
-        res |= (data[offset.getAndIncrement()] & 0xFF) << 000;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 070;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 060;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 050;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 040;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 030;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 020;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 010;
+        res |= (data[offset.getAndIncrement()] & 0xFFL) << 000;
 
         return res;
     }
@@ -630,8 +629,8 @@ public class ByteUtils {
      * @param offset the offset in the array
      */
     public static void writeUUID(byte[] data, UUID value, Offset offset) {
-        writeLongLE(data, value.getMostSignificantBits(),  offset.get());
-        writeLongLE(data, value.getLeastSignificantBits(), offset.addAndGet(8));
+        writeLongLE(data, value.getMostSignificantBits(),  offset);
+        writeLongLE(data, value.getLeastSignificantBits(), offset);
     }
     
     
@@ -643,7 +642,7 @@ public class ByteUtils {
     public static UUID readUUID(byte[] packet, Offset offset) {
         return new UUID(
             readLongLE(packet, offset),
-            readLongLE(packet, offset.addAndGet(8))
+            readLongLE(packet, offset)
         );
     }
 
