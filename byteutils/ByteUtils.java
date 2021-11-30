@@ -1,4 +1,4 @@
-package com.thecrownstudios.relay.common;
+package byteutils;
 
 import java.net.InetSocketAddress;
 import java.util.UUID;
